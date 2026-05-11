@@ -1,6 +1,7 @@
 .venv
-chroma_store
 .env
+.vscode
 
 __pycache__
-.vscode
+chroma_store
+docs
