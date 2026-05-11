@@ -1,0 +1,62 @@
+[
+  {
+    "task": "move forward slowly",
+    "rag_score": 2,
+    "zero_score": 2,
+    "winner": "Tie"
+  },
+  {
+    "task": "turn right 90 degrees",
+    "rag_score": 2,
+    "zero_score": 2,
+    "winner": "Tie"
+  },
+  {
+    "task": "avoid obstacle on the left",
+    "rag_score": 3,
+    "zero_score": 3,
+    "winner": "Tie"
+  },
+  {
+    "task": "do a full rotation",
+    "rag_score": 2,
+    "zero_score": 2,
+    "winner": "Tie"
+  },
+  {
+    "task": "move backward",
+    "rag_score": 2,
+    "zero_score": 2,
+    "winner": "Tie"
+  },
+  {
+    "task": "spiral outward",
+    "rag_score": 3,
+    "zero_score": 3,
+    "winner": "Tie"
+  },
+  {
+    "task": "move forward then turn left",
+    "rag_score": 3,
+    "zero_score": 3,
+    "winner": "Tie"
+  },
+  {
+    "task": "stop and wait",
+    "rag_score": 2,
+    "zero_score": 2,
+    "winner": "Tie"
+  },
+  {
+    "task": "navigate around a box",
+    "rag_score": 3,
+    "zero_score": 3,
+    "winner": "Tie"
+  },
+  {
+    "task": "do a figure eight",
+    "rag_score": 3,
+    "zero_score": 3,
+    "winner": "Tie"
+  }
+]
