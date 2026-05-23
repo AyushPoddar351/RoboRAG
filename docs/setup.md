@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Ubuntu 22.04 (or WSL2 on Windows with Ubuntu 22.04)
+- Ubuntu 24.04 (or WSL2 on Windows with Ubuntu 24.04)
 - ROS2 Jazzy installed and sourced
 - Python 3.10+
 - Ollama running (locally or on Windows host)

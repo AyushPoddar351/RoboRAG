@@ -7,20 +7,20 @@
   },
   {
     "task": "turn right 90 degrees",
-    "rag_score": 2,
-    "zero_score": 2,
-    "winner": "Tie"
-  },
-  {
-    "task": "avoid obstacle on the left",
     "rag_score": 3,
     "zero_score": 3,
     "winner": "Tie"
   },
   {
+    "task": "avoid obstacle on the left",
+    "rag_score": 4,
+    "zero_score": 4,
+    "winner": "Tie"
+  },
+  {
     "task": "do a full rotation",
-    "rag_score": 2,
-    "zero_score": 2,
+    "rag_score": 3,
+    "zero_score": 3,
     "winner": "Tie"
   },
   {
@@ -31,26 +31,26 @@
   },
   {
     "task": "spiral outward",
-    "rag_score": 3,
-    "zero_score": 3,
+    "rag_score": 4,
+    "zero_score": 4,
     "winner": "Tie"
   },
   {
     "task": "move forward then turn left",
-    "rag_score": 3,
-    "zero_score": 3,
+    "rag_score": 4,
+    "zero_score": 4,
     "winner": "Tie"
   },
   {
     "task": "stop and wait",
-    "rag_score": 2,
-    "zero_score": 2,
+    "rag_score": 3,
+    "zero_score": 3,
     "winner": "Tie"
   },
   {
     "task": "navigate around a box",
-    "rag_score": 3,
-    "zero_score": 3,
+    "rag_score": 4,
+    "zero_score": 4,
     "winner": "Tie"
   },
   {

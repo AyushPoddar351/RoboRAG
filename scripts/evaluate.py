@@ -59,16 +59,21 @@ New task: {task}
     response = llm.chat(model=MODEL, messages=[{'role': 'user', 'content': prompt}])
     return response.message.content
 
-def score_plan(raw: str) -> dict:
-    """Score a plan on 3 criteria. Returns dict with scores and parsed steps."""
+KNOWN_GOOD_VALUES = {
+    'linear_x': [0.0, 0.2, 0.3],
+    'angular_z': [0.0, 0.5, -0.5],
+    'duration': [3.0, 5.0, 2.0]
+}
+
+def score_plan(raw: str, task: str = "") -> dict:
     match = re.search(r'\[.*\]', raw, re.DOTALL)
     if not match:
-        return {"parseable": 0, "valid_values": 0, "multi_step": 0, "total": 0, "steps": []}
+        return {"parseable": 0, "valid_values": 0, "multi_step": 0, "grounded": 0, "total": 0, "steps": []}
     
     try:
         steps = json.loads(match.group())
     except json.JSONDecodeError:
-        return {"parseable": 0, "valid_values": 0, "multi_step": 0, "total": 0, "steps": []}
+        return {"parseable": 0, "valid_values": 0, "multi_step": 0, "grounded": 0, "total": 0, "steps": []}
 
     parseable = 1
     valid_values = 1 if all(
@@ -78,10 +83,19 @@ def score_plan(raw: str) -> dict:
         for s in steps
     ) else 0
     multi_step = 1 if len(steps) > 1 else 0
-    total = parseable + valid_values + multi_step
 
+    # Grounding score — are values close to known good values from KB?
+    grounded = 0
+    for step in steps:
+        lx_grounded = any(abs(step.get('linear_x', 99) - v) < 0.05 for v in KNOWN_GOOD_VALUES['linear_x'])
+        az_grounded = any(abs(step.get('angular_z', 99) - v) < 0.05 for v in KNOWN_GOOD_VALUES['angular_z'])
+        if lx_grounded and az_grounded:
+            grounded = 1
+            break
+
+    total = parseable + valid_values + multi_step + grounded
     return {"parseable": parseable, "valid_values": valid_values,
-            "multi_step": multi_step, "total": total, "steps": steps}
+            "multi_step": multi_step, "grounded": grounded, "total": total, "steps": steps}
 
 def run_evaluation():
     results = []
@@ -119,8 +133,8 @@ def run_evaluation():
 
     print("-" * 60)
     print(f"\nRAG wins: {rag_wins} | Zero-shot wins: {zero_wins} | Ties: {ties}")
-    print(f"RAG total score: {rag_total}/{len(TEST_TASKS)*3}")
-    print(f"Zero-shot total score: {zero_total}/{len(TEST_TASKS)*3}")
+    print(f"RAG total score: {rag_total}/{len(TEST_TASKS)*4}")
+    print(f"Zero-shot total score: {zero_total}/{len(TEST_TASKS)*4}")
 
     # Save results
     log_path = os.path.join(PROJECT_ROOT, "logs", "evaluation.json")
