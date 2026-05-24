@@ -9,7 +9,7 @@ CHROMA_PATH = os.path.join(PROJECT_ROOT, "knowledge_base", "chroma_store")
 
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
 collection = chroma_client.get_collection("robot_tasks")
-llm = ollama.Client(host='http://172.20.192.1:11434')
+llm = ollama.Client(host='http://localhost:11434')
 
 MODEL = 'gemma4:31b-cloud'
 

@@ -31,9 +31,9 @@
   },
   {
     "task": "spiral outward",
-    "rag_score": 4,
+    "rag_score": 3,
     "zero_score": 4,
-    "winner": "Tie"
+    "winner": "Zero \u2713"
   },
   {
     "task": "move forward then turn left",
@@ -55,8 +55,8 @@
   },
   {
     "task": "do a figure eight",
-    "rag_score": 3,
+    "rag_score": 4,
     "zero_score": 3,
-    "winner": "Tie"
+    "winner": "RAG \u2713"
   }
 ]

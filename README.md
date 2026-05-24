@@ -152,6 +152,6 @@ Each execution run appends a new experience to the database, continuously improv
 
 ## Environment Notes
 
-- Designed to run inside **WSL2** (Ubuntu 22.04) with Ollama on the Windows host
+- Designed to run inside **WSL2** (Ubuntu 24.04) with Ollama on the Windows host
 - Default Ollama host: `http://172.20.192.1:11434` — update in `rag_planner.py` and `roborag_executor.py` if your setup differs
 - ChromaDB data is persisted to `knowledge_base/chroma_store/`
